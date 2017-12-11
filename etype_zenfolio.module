@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @return array
+ */
+function etype_zenfolio_menu() {
+
+  $items['admin/config/etype/etype_zenfolio/settings'] = [
+    'title' => 'Zenfolio Settings',
+    'description' => 'Enter user name and password for your Zenfolio account',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['etype_zenfolio_admin_form'],
+    'access arguments' => ['administer content'],
+    'file' => 'etype_zenfolio.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  ];
+
+  return $items;
+}

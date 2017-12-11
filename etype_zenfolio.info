@@ -1,0 +1,6 @@
+name = eType Services Zenfolio
+description = Incorporate Zenfolio galleries into articles.
+package = eType Services Custom Modules
+core = 7.x
+project = "etype_zenfolio"
+files[] = etype_zenfolio.admin.inc
