@@ -2,12 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: charlie
- * Date: 11/7/17
- * Time: 11:49 a.m.
+ * Date: 11/11/17
  */
 
 /**
- * Send Newsletter form
+ * Zenfolio settings
  * @param $form_state
  * @return array
  */
