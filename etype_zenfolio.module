@@ -15,15 +15,15 @@ function etype_zenfolio_menu() {
     'type' => MENU_NORMAL_ITEM,
   ];
 
-    $items['zenfolio_test'] = array(
-        'title' => 'Zenfolio Test',
-        'page callback' => '_etype_zenfolio_fetch()',
-        'type' => MENU_NORMAL_ITEM,
-    );
+  $items['zenfolio_test'] = [
+    'title' => 'Zenfolio Test',
+    'page callback' => '_etype_zenfolio_fetch()',
+    'type' => MENU_NORMAL_ITEM,
+  ];
 
   return $items;
 }
 
 function _etype_zenfolio_fetch() {
-    echo 'yes';
+  echo 'yes';
 }
