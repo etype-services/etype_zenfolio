@@ -43,15 +43,14 @@ function _etype_zenfolio_fetch()
   try {
     $pictures = $client->GetRecentPhotos(0, 10);
     array_walk($pictures, display_imgs);
+    print_r($pictures);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
 
-  function display_imgs(&$picture)
+  function display_imgs(&$item, $key)
   {
-    $picture = $picture->Title . '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
+    $item = $item->Title . '<a href="'.$item->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($item, 1).'" title="'.$item->Title.'" alt="'.$item->Id.'" /></a>';
   }
-
-  print_r($pictures);
 
 }
