@@ -5,7 +5,26 @@
 */
 function etype_zenfolio_install()
 {
-  if (!field_info_instance('node', 'field_zenfolio_photoset_id', 'article'))
+  // Need to know what content type to put field into
+  // Newsplus theme is mt_post
+  $article_types = ['article', 'mt_post'];
+  $node_types = node_type_get_types();
+  foreach ($node_types as $item)
+  {
+    if (in_array($item->name, $article_types)) {
+      $article_type = $item->name;
+      continue;
+    }
+  }
+
+  if (empty($article_type))
+  {
+    drupal_set_message('Please edit article_types array in module .install file to include the content type in which to include Zenfolio galleries.', 'error');
+    drupal_goto('admin/modules');
+    return;
+  }
+
+  if (!field_info_instance('node', 'field_zenfolio_photoset_id', $article_type))
   {
     $field = [
       'field_name' => 'field_zenfolio_photoset_id',
