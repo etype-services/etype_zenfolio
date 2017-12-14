@@ -36,17 +36,14 @@ function _etype_zenfolio_fetch()
   try {
     $client = new phpZenfolio\Client($appname);
     $pictures = $client->LoadPhotoSetPhotos('p82640940', 0, 96);
-    array_walk($pictures, 'displayImgs', $client);
+    array_walk($pictures, 'displayImgs');
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
 
-  function displayImgs($pictures)
+  function displayImgs($picture)
   {
-    // Display the 60x60 cropped thumbnails and link to the photo page for each.
-    foreach ($pictures as $picture) {
-      echo '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
-    }
+    echo '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
   }
 
 }
