@@ -1,7 +1,5 @@
 <?php
 
-$appname = 'eType Services/1.0 (www.etypeservices.com)';
-
 /**
  * @return array
  */
@@ -28,7 +26,7 @@ function etype_zenfolio_menu() {
 }
 
 function _etype_zenfolio_fetch() {
-  global $appname;
+  $appname = 'eType Services/1.0 (www.etypeservices.com)';
   $username = variable_get('etype_zenfolio_username');
   $password = variable_get('etype_zenfolio_password');
 
