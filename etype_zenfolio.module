@@ -42,13 +42,13 @@ function _etype_zenfolio_fetch()
 
   try {
     $pictures = $client->GetRecentPhotos(0, 10);
-    var_dump($pictures);
-    //array_walk($pictures, displayImgs);
+    //var_dump($pictures);
+    array_walk($pictures, display_imgs);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
 
-  function displayImgs($picture)
+  function display_imgs($picture)
   {
     echo '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
   }
