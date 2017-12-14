@@ -29,11 +29,11 @@ function etype_zenfolio_preprocess_field(&$vars)
 {
   if($vars['element']['#field_name'] == 'field_zenfolio_photoset_id')
   {
-    kpr($vars);
+    // kpr($vars);
     $zenfolio_photoset_id = $vars['items'][0]['#markup'];
     $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
     $markup = implode('', $pictures);
-    kpr($markup);
+    // kpr($markup);
     $vars['items'][0]['#markup'] = $markup;
   }
   return;
@@ -50,11 +50,6 @@ function _etype_zenfolio_fetch($photoset_id)
     $username = variable_get('etype_zenfolio_username');
     $password = variable_get('etype_zenfolio_password');
 
-    function display_imgs(&$item)
-    {
-      $item = $item->Title . '<a href="' . $item->PageUrl . '"><img src="' . phpZenfolio\Client::imageUrl($item, 1) . '" title="' . $item->Title . '" alt="' . $item->Id . '" /></a>';
-    }
-
     require_once 'vendor/autoload.php';
 
     try {
@@ -68,7 +63,7 @@ function _etype_zenfolio_fetch($photoset_id)
       // $pictures = $client->GetRecentPhotos(0, 10);
       $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, 10);
       // $pictures = $client->LoadGroupHierarchy($username);
-      array_walk($pictures, 'display_imgs');
+      array_walk($pictures, '_etype_display_imgs');
       // print_r($pictures);
     } catch (Exception $e) {
       echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
@@ -77,4 +72,9 @@ function _etype_zenfolio_fetch($photoset_id)
 
   return ($pictures);
 
+}
+
+function _etype_display_imgs(&$item)
+{
+  $item = $item->Title . '<a href="' . $item->PageUrl . '"><img src="' . phpZenfolio\Client::imageUrl($item, 1) . '" title="' . $item->Title . '" alt="' . $item->Id . '" /></a>';
 }
