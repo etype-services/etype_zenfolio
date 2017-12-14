@@ -50,7 +50,7 @@ function _etype_zenfolio_fetch()
 
   function display_imgs($picture)
   {
-    echo '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
+    echo $picture->Title . '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
   }
 
 }
