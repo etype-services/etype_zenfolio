@@ -47,8 +47,8 @@ function _etype_zenfolio_fetch()
 
   try {
     // $pictures = $client->GetRecentPhotos(0, 10);
-    // $pictures = $client->LoadPhotoSetPhotos('p82640940', 0, 10);
-    $pictures = $client->LoadGroupHierarchy($username);
+    $pictures = $client->LoadPhotoSetPhotos('1732921843038727227', 0, 10);
+    // $pictures = $client->LoadGroupHierarchy($username);
     // array_walk($pictures, 'display_imgs');
     print_r($pictures);
   } catch (Exception $e) {
