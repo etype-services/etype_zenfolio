@@ -27,14 +27,14 @@ function etype_zenfolio_menu()
 
 function etype_zenfolio_preprocess_node(&$variables)
 {
+  dpm($variables);
   $node = $variables['node'];
   if (isset($node->field_zenfolio_photoset_id))
   {
     $zenfolio_photoset_id = $node->field_zenfolio_photoset_id['und'][0]['value'];
     dpm($zenfolio_photoset_id);
     $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
-    dpm($pictures);
-    $node->field_zenfolio_photoset_id['und'][0]['value'] = $pictures;
+    $markup = implode('', $pictures);
   }
 }
 
