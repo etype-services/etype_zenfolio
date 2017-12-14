@@ -40,5 +40,9 @@ function etype_zenfolio_install()
       field_create_instance($instance);
     }
   }
+  else
+  {
+    drupal_set_message('The module installer was unable to add field_zenfolio_photoset_id to any content type. Please add this text field to the content type that should display Zenfolio photosets.');
+  }
 
 }
