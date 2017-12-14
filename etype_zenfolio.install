@@ -1,0 +1,28 @@
+<?php
+
+/**
+* Implements hook_install().
+*/
+function etype_zenfolio_install()
+{
+  if (!field_info_instance('node', 'field_zenfolio_photoset_id', 'article'))
+  {
+    $field = [
+      'field_name' => 'field_zenfolio_photoset_id',
+      'cardinality' => 1,
+      'type' => 'text',
+    ];
+    field_create_field($field);
+
+    $instance = [
+      'field_name' => 'field_zenfolio_photoset_id',
+      'label' => 'Zenfolio Photoset Id',
+      'bundle' => 'article',
+      'entity_type' => 'node',
+      'widget' => [
+        'type' => 'text_textfield',
+        ]
+      ];
+    field_create_instance($instance);
+  }
+}

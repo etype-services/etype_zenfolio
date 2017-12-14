@@ -33,7 +33,7 @@ function _etype_zenfolio_fetch()
 
   function display_imgs(&$item)
   {
-    $item = $item->Title . '<a href="'.$item->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($item, 1).'" title="'.$item->Title.'" alt="'.$item->Id.'" /></a>';
+    $item = $item->Title . '<a href="' . $item->PageUrl . '"><img src="' . phpZenfolio\Client::imageUrl($item, 1) . '" title="' . $item->Title . '" alt="' . $item->Id . '" /></a>';
   }
 
   require_once 'vendor/autoload.php';
@@ -50,7 +50,7 @@ function _etype_zenfolio_fetch()
     $pictures = $client->LoadPhotoSetPhotos('1732921843038727227', 0, 10);
     // $pictures = $client->LoadGroupHierarchy($username);
     array_walk($pictures, 'display_imgs');
-    print_r($pictures);
+    // print_r($pictures);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
