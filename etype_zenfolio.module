@@ -29,7 +29,7 @@ function etype_zenfolio_preprocess_node(&$variables)
 {
   $node = $variables['node'];
   echo $node->field_zenfolio_photoset_id['und'][0]['value'];
-  if (isset($node->field_zenfolio_photoset_id) && !empty($node->field_zenfolio_photoset_id))
+  if (isset($node->field_zenfolio_photoset_id))
   {
     dpm($node->field_zenfolio_photoset_id['und'][0]['value']);
     $zenfolio_photoset_id = $node->field_zenfolio_photoset_id['und'][0]['value'];
