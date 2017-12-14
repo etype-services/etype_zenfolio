@@ -49,7 +49,7 @@ function _etype_zenfolio_fetch()
     // $pictures = $client->GetRecentPhotos(0, 10);
     $pictures = $client->LoadPhotoSetPhotos('1732921843038727227', 0, 10);
     // $pictures = $client->LoadGroupHierarchy($username);
-    // array_walk($pictures, 'display_imgs');
+    array_walk($pictures, 'display_imgs');
     print_r($pictures);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
