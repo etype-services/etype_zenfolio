@@ -1,0 +1,15 @@
+{
+  "name": "etype/zenfolio",
+  "description": "drupal module",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Charlie Llewellin",
+      "email": "charliellewellin@gmail.com"
+    }
+  ],
+  "require": {
+    "lildude/phpzenfolio": "2.0.1"
+  }
+}
