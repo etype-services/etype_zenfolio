@@ -28,12 +28,12 @@ function etype_zenfolio_menu()
 function etype_zenfolio_preprocess_field(&$vars)
 {
   kpr($vars);
-  if($vars['element']['#field_name'] == '$zenfolio_photoset_id')
+  if($vars['element']['#field_name'] == 'field_zenfolio_photoset_id')
   {
-    //$zenfolio_photoset_id = $node->field_zenfolio_photoset_id['und'][0]['value'];
-    //$pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
-    //$markup = implode('', $pictures);
-    //$variables['content']['field_zenfolio_photoset_id']['#items'][0]['#markup'] = $markup;
+    $zenfolio_photoset_id = $vars['#items'][0]['#markup'];
+    $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
+    $markup = implode('', $pictures);
+    $vars['#items'][0]['#markup'] = $markup;
   }
 }
 
