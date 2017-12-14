@@ -31,7 +31,9 @@ function etype_zenfolio_preprocess_node(&$variables)
   if (isset($node->field_zenfolio_photoset_id))
   {
     $zenfolio_photoset_id = $node->field_zenfolio_photoset_id['und'][0]['value'];
+    dpm($zenfolio_photoset_id);
     $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
+    dpm($pictures);
     $node->field_zenfolio_photoset_id['und'][0]['value'] = $pictures;
   }
 }
@@ -41,7 +43,7 @@ function _etype_zenfolio_fetch($photoset_id)
 
   $pictures = [];
 
-  if (! empty($photoset_id))
+  if (!empty($photoset_id))
   {
     $appname = 'eType Services/1.0 (www.etypeservices.com)';
     $username = variable_get('etype_zenfolio_username');
