@@ -34,17 +34,27 @@ function _etype_zenfolio_fetch() {
 
   try {
     $client = new phpZenfolio\Client($appname);
-    // Login. As Plaintext is not passed, the challenge-response authentication method is used.
-    $client->login($username, $password);
-    // Load the User's hierachy
+    // Get list of recent galleries and collections
     $h = $client->LoadGroupHierarchy($username);
-    // Load the photos for the first set/collection
-    $photos = $client->LoadPhotoSetPhotos($h->Elements[0]->Id, 0, $h->Elements[0]->PhotoCount);
-    // Display the 60x60 cropped thumbnails and link to the image page for each image in the first gallery/collection.
-    foreach ($photos as $photo) {
-      echo '<a href="'.$photo->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($photo, 1).'" title="'.$photo->Title.'" alt="'.$photo->Id.'" width="60" height="60" /></a>';
-    }
+    // Now traverse the tree and locate the first public gallery and display it's first 96 photos
+    array_walk($h->Elements, 'displayImgs', $client);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
+
+  function displayImgs(\stdClass $element, $_, phpZenfolio\Client $client)
+  {
+    if ($element->{'$type'} == 'Group') {
+      array_walk($element->Elements, 'displayImgs', $client);
+    } else {
+      if ($element->PhotoCount > 0) {
+        $pictures = $client->LoadPhotoSetPhotos($element->Id, 0, 96);
+        // Display the 60x60 cropped thumbnails and link to the photo page for each.
+        foreach ($pictures as $picture) {
+          echo '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
+        }
+      }
+    }
+  }
+
 }
