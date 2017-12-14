@@ -33,7 +33,7 @@ function etype_zenfolio_preprocess_field(&$vars)
     $zenfolio_photoset_id = $vars['#items'][0]['#markup'];
     $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
     $markup = implode('', $pictures);
-    dpm($markup);
+    kpr($markup);
     $vars['#items'][0]['#markup'] = $markup;
   }
   return;
