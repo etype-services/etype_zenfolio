@@ -28,43 +28,50 @@ function etype_zenfolio_menu()
 function etype_zenfolio_preprocess_node(&$variables)
 {
   $node = $variables['node'];
-  echo $node->field_zenfolio_photoset_id['und'][0]['value'];
   if (isset($node->field_zenfolio_photoset_id))
   {
-    dpm($node->field_zenfolio_photoset_id['und'][0]['value']);
     $zenfolio_photoset_id = $node->field_zenfolio_photoset_id['und'][0]['value'];
+    $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
+    $node->field_zenfolio_photoset_id['und'][0]['value'] = $pictures;
   }
 }
 
-function _etype_zenfolio_fetch()
+function _etype_zenfolio_fetch($photoset_id)
 {
 
-  $appname = 'eType Services/1.0 (www.etypeservices.com)';
-  $username = variable_get('etype_zenfolio_username');
-  $password = variable_get('etype_zenfolio_password');
+  $pictures = [];
 
-  function display_imgs(&$item)
+  if (! empty($photoset_id))
   {
-    $item = $item->Title . '<a href="' . $item->PageUrl . '"><img src="' . phpZenfolio\Client::imageUrl($item, 1) . '" title="' . $item->Title . '" alt="' . $item->Id . '" /></a>';
+    $appname = 'eType Services/1.0 (www.etypeservices.com)';
+    $username = variable_get('etype_zenfolio_username');
+    $password = variable_get('etype_zenfolio_password');
+
+    function display_imgs(&$item)
+    {
+      $item = $item->Title . '<a href="' . $item->PageUrl . '"><img src="' . phpZenfolio\Client::imageUrl($item, 1) . '" title="' . $item->Title . '" alt="' . $item->Id . '" /></a>';
+    }
+
+    require_once 'vendor/autoload.php';
+
+    try {
+      $client = new phpZenfolio\Client($appname);
+      $client->login($username, $password);
+    } catch (Exception $e) {
+      echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
+    }
+
+    try {
+      // $pictures = $client->GetRecentPhotos(0, 10);
+      $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, 10);
+      // $pictures = $client->LoadGroupHierarchy($username);
+      array_walk($pictures, 'display_imgs');
+      // print_r($pictures);
+    } catch (Exception $e) {
+      echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
+    }
   }
 
-  require_once 'vendor/autoload.php';
-
-  try {
-    $client = new phpZenfolio\Client($appname);
-    $client->login($username, $password);
-  } catch (Exception $e) {
-    echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
-  }
-
-  try {
-    // $pictures = $client->GetRecentPhotos(0, 10);
-    $pictures = $client->LoadPhotoSetPhotos('1732921843038727227', 0, 10);
-    // $pictures = $client->LoadGroupHierarchy($username);
-    array_walk($pictures, 'display_imgs');
-    // print_r($pictures);
-  } catch (Exception $e) {
-    echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
-  }
+  return ($pictures);
 
 }
