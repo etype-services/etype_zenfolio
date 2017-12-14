@@ -36,8 +36,8 @@ function _etype_zenfolio_fetch()
   try {
     $client = new phpZenfolio\Client($appname);
     $client->login($username, $password);
-    $pictures = $client->LoadPhotoSetPhotos('p82640940', 0, 96);
-    array_walk($pictures, 'displayImgs');
+    //$pictures = $client->LoadPhotoSetPhotos('p82640940', 0, 96);
+    //array_walk($pictures, 'displayImgs');
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
