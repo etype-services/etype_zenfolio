@@ -35,7 +35,7 @@ function etype_zenfolio_preprocess_node(&$variables)
     dpm($zenfolio_photoset_id);
     $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
     $markup = implode('', $pictures);
-    $variables['elements']['field_zenfolio_photoset_id']['#items'][0]['safe_value'] = $markup;
+    $variables['content']['field_zenfolio_photoset_id']['#items'][0]['safe_value'] = $markup;
   }
 }
 
