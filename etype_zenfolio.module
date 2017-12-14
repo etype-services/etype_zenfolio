@@ -3,8 +3,8 @@
 /**
  * @return array
  */
-function etype_zenfolio_menu() {
-
+function etype_zenfolio_menu()
+{
   $items['admin/config/etype/etype_zenfolio/settings'] = [
     'title' => 'Zenfolio Settings',
     'description' => 'Enter user name and password for your Zenfolio account',
@@ -25,7 +25,8 @@ function etype_zenfolio_menu() {
   return $items;
 }
 
-function _etype_zenfolio_fetch() {
+function _etype_zenfolio_fetch()
+{
   $appname = 'eType Services/1.0 (www.etypeservices.com)';
   $username = variable_get('etype_zenfolio_username');
   $password = variable_get('etype_zenfolio_password');
@@ -34,26 +35,17 @@ function _etype_zenfolio_fetch() {
 
   try {
     $client = new phpZenfolio\Client($appname);
-    // Get list of recent galleries and collections
-    $h = $client->LoadGroupHierarchy($username);
-    // Now traverse the tree and locate the first public gallery and display it's first 96 photos
-    array_walk($h->Elements, 'displayImgs', $client);
+    $pictures = $client->LoadPhotoSetPhotos('p82640940', 0, 96);
+    array_walk($pictures, 'displayImgs', $client);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
 
-  function displayImgs(\stdClass $element, $_, phpZenfolio\Client $client)
+  function displayImgs($pictures)
   {
-    if ($element->{'$type'} == 'Group') {
-      array_walk($element->Elements, 'displayImgs', $client);
-    } else {
-      if ($element->PhotoCount > 0) {
-        $pictures = $client->LoadPhotoSetPhotos($element->Id, 0, 96);
-        // Display the 60x60 cropped thumbnails and link to the photo page for each.
-        foreach ($pictures as $picture) {
-          echo '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
-        }
-      }
+    // Display the 60x60 cropped thumbnails and link to the photo page for each.
+    foreach ($pictures as $picture) {
+      echo '<a href="'.$picture->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($picture, 1).'" title="'.$picture->Title.'" alt="'.$picture->Id.'" /></a>';
     }
   }
 
