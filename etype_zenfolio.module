@@ -42,7 +42,8 @@ function _etype_zenfolio_fetch()
 
   try {
     $pictures = $client->GetRecentPhotos(0, 10);
-    array_walk($pictures, displayImgs);
+    var_dump($pictures);
+    //array_walk($pictures, displayImgs);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
