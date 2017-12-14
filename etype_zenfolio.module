@@ -25,16 +25,15 @@ function etype_zenfolio_menu()
   return $items;
 }
 
-function etype_zenfolio_preprocess_node(&$variables)
+function etype_zenfolio_preprocess_field(&$vars)
 {
-  dpm($variables['content']);
-  $node = $variables['node'];
-  if (isset($node->field_zenfolio_photoset_id))
+  kpr($vars);
+  if($vars['element']['#field_name'] == '$zenfolio_photoset_id')
   {
-    $zenfolio_photoset_id = $node->field_zenfolio_photoset_id['und'][0]['value'];
-    $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
-    $markup = implode('', $pictures);
-    $variables['content']['field_zenfolio_photoset_id']['#items'][0]['#markup'] = $markup;
+    //$zenfolio_photoset_id = $node->field_zenfolio_photoset_id['und'][0]['value'];
+    //$pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
+    //$markup = implode('', $pictures);
+    //$variables['content']['field_zenfolio_photoset_id']['#items'][0]['#markup'] = $markup;
   }
 }
 
