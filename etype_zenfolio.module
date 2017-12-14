@@ -17,7 +17,7 @@ function etype_zenfolio_menu() {
 
   $items['zenfolio_test'] = [
     'title' => 'Zenfolio Test',
-    'page callback' => '_etype_zenfolio_fetch()',
+    'page callback' => '_etype_zenfolio_fetch',
     'access arguments' => array('administer content'),
     'type' => MENU_NORMAL_ITEM,
   ];
