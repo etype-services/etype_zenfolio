@@ -41,7 +41,7 @@ function _etype_zenfolio_fetch()
   }
 
   try {
-    $pictures = $client->LoadPhotoSet('p82640940', 'Level1', true);
+    $pictures = $client->GetRecentPhotos(0, 10);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
   }
