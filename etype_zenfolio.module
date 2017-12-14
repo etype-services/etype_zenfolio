@@ -30,11 +30,11 @@ function etype_zenfolio_preprocess_field(&$vars)
   if($vars['element']['#field_name'] == 'field_zenfolio_photoset_id')
   {
     kpr($vars);
-    $zenfolio_photoset_id = $vars['#items'][0]['#markup'];
+    $zenfolio_photoset_id = $vars['items'][0]['#markup'];
     $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
     $markup = implode('', $pictures);
     kpr($markup);
-    $vars['#items'][0]['#markup'] = $markup;
+    $vars['items'][0]['#markup'] = $markup;
   }
   return;
 }
