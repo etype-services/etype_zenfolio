@@ -11,7 +11,7 @@ function etype_zenfolio_install()
   $node_types = node_type_get_types();
   foreach ($node_types as $item)
   {
-    if (in_array($item->name, $article_types)) {
+    if (in_array($item->type, $article_types)) {
       $article_type = $item->name;
       continue;
     }
