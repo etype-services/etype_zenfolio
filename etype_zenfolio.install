@@ -19,11 +19,10 @@ function etype_zenfolio_install()
 
   if (!empty($article_type))
   {
-    if (!field_info_instance('node', 'field_zenfolio_photoset_id', $article_type))
+    if (!field_info_field('node', 'field_zenfolio_photoset_id', $article_type))
     {
       $field = [
         'field_name' => 'field_zenfolio_photoset_id',
-        'cardinality' => 1,
         'type' => 'text',
       ];
       field_create_field($field);
@@ -34,7 +33,7 @@ function etype_zenfolio_install()
         'bundle' => $article_type,
         'entity_type' => 'node',
         'widget' => [
-          'type' => 'text_textfield',
+          'type' => 'textfield',
         ]
       ];
       field_create_instance($instance);
