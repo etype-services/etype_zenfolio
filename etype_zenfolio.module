@@ -25,6 +25,12 @@ function etype_zenfolio_menu()
   return $items;
 }
 
+function etype_zenfolio_preprocess_node(&$variables)
+{
+  $node = $variables['node'];
+  dpm($node->field['field_zenfolio_photoset_id']);
+}
+
 function _etype_zenfolio_fetch()
 {
 
