@@ -31,6 +31,11 @@ function _etype_zenfolio_fetch()
   $username = variable_get('etype_zenfolio_username');
   $password = variable_get('etype_zenfolio_password');
 
+  function display_imgs(&$item)
+  {
+    $item = $item->Title . '<a href="'.$item->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($item, 1).'" title="'.$item->Title.'" alt="'.$item->Id.'" /></a>';
+  }
+
   require_once 'vendor/autoload.php';
 
   try {
@@ -46,11 +51,6 @@ function _etype_zenfolio_fetch()
     print_r($pictures);
   } catch (Exception $e) {
     echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
-  }
-
-  function display_imgs(&$item, $key)
-  {
-    $item = $item->Title . '<a href="'.$item->PageUrl.'"><img src="'.phpZenfolio\Client::imageUrl($item, 1).'" title="'.$item->Title.'" alt="'.$item->Id.'" /></a>';
   }
 
 }
