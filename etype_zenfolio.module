@@ -27,6 +27,10 @@ function etype_zenfolio_menu()
 
 function _etype_zenfolio_fetch()
 {
+
+  $node_types = node_type_get_types();
+  var_dump($node_types);
+
   $appname = 'eType Services/1.0 (www.etypeservices.com)';
   $username = variable_get('etype_zenfolio_username');
   $password = variable_get('etype_zenfolio_password');
