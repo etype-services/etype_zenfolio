@@ -17,6 +17,10 @@ class ComposerStaticInit10350fe87307a798d692b040eefe9745
         array (
             'phpZenfolio\\' => 12,
         ),
+        'T' => 
+        array (
+            'Twig\\' => 5,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -33,6 +37,10 @@ class ComposerStaticInit10350fe87307a798d692b040eefe9745
         'phpZenfolio\\' => 
         array (
             0 => __DIR__ . '/..' . '/lildude/phpzenfolio/lib/phpZenfolio',
+        ),
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (
