@@ -5,7 +5,8 @@
 
             // Next/previous controls
             function plusSlides(n) {
-                showSlides(slideIndex += n);
+                slideIndex += n;
+                showSlides(slideIndex);
             }
 
             // Thumbnail image controls
@@ -14,7 +15,7 @@
             }
 
             function showSlides(n) {
-                var slides = $(".zenfolio-slides");
+                var slides = $(".zenfolio-slide");
                 // var dots = $(".zenfolio-dot");
                 if (n > slides.length) {
                     slideIndex = 1;

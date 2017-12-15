@@ -6,7 +6,7 @@
   box-sizing: border-box; }
   .zenfolio-slideshow-container * {
     box-sizing: border-box; }
-  .zenfolio-slideshow-container .zenfolio-slides {
+  .zenfolio-slideshow-container .zenfolio-slide {
     display: none; }
   .zenfolio-slideshow-container .zenfolio-prev, .zenfolio-slideshow-container .zenfolio-next {
     cursor: pointer;
