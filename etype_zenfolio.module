@@ -85,8 +85,10 @@ function _etype_format_slideshow($pictures, $size = 4)
   $items = [];
   foreach ($pictures as $item)
   {
-    $items[]['img_src'] = phpZenfolio\Client::imageUrl($item, $size);
-    $items[]['caption'] = 'caption';
+    $items[] = [
+      'img_src' => phpZenfolio\Client::imageUrl($item, $size),
+      'caption' => 'caption',
+    ];
   }
 
   $template_path = drupal_get_path('module', 'etype_zenfolio') ;
