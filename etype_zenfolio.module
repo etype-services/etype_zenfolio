@@ -83,6 +83,7 @@ function _etype_format_slideshow($pictures, $size = 4)
 {
   // dpm($pictures);
   $items = [];
+  $total = count($pictures);
   foreach ($pictures as $item)
   {
     $items[] = [
@@ -99,6 +100,7 @@ function _etype_format_slideshow($pictures, $size = 4)
   $template = $twig->load('slides.html.twig');
   $content = $template->render([
     'items' => $items,
+    'total' => $total,
   ]);
 
   return $content;
