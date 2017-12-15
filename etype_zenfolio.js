@@ -9,11 +9,6 @@
                 showSlides(slideIndex);
             }
 
-            // Thumbnail image controls
-            function currentSlide(n) {
-                showSlides(n);
-            }
-
             function showSlides(n) {
                 // alert(n);
                 var slides = $(".zenfolio-slide");
@@ -28,8 +23,8 @@
                 }
                 // alert(slideIndex);
                 slides.each(function (i) {
-                    alert(i);
                     if (i === (slideIndex - 1)) {
+                        alert(i);
                         $("this").css("display", "block");
                         // dots[i].addclass("active");
                     } else {
