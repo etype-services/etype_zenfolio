@@ -25,7 +25,7 @@
                 slides.each(function (i) {
                     if (i === (slideIndex - 1)) {
                         $( this ).css("display", "block");
-                        // dots[i].addclass("active");
+                        // dots[i].addClass("active");
                     } else {
                         $( this ).css("display", "none");
                         // dots[i].removeClass(" active");
