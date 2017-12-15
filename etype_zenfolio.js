@@ -10,23 +10,28 @@
 
             // Thumbnail image controls
             function currentSlide(n) {
-                showSlides(slideIndex = n);
+                showSlides(n);
             }
 
             function showSlides(n) {
                 var i;
                 var slides = $(".zenfolio-slides");
                 var dots = $(".zenfolio-dot");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i ++) {
-                    slides[i].css("display", "none");
+                if (n > slides.length) {
+                    slideIndex = 1;
                 }
-                for (i = 0; i < dots.length; i ++) {
-                    dots[i].removeClass(" active");
+                if (n < 1) {
+                    slideIndex = slides.length;
                 }
-                slides[slideIndex -1].css("display", "block");
-                dots[slideIndex -1].addclass("active");
+                slides.each(function (i) {
+                    if (i === slideIndex - 1) {
+                        $(this).css("display", "block");
+                        dots[i].addclass("active");
+                    } else {
+                        $(this).css("display", "none");
+                        dots[i].removeClass(" active");
+                    }
+                });
             }
 
             showSlides(slideIndex);
