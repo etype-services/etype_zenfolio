@@ -29,7 +29,7 @@
                     }
                 });
                 var num = slideIndex + 1;
-                $("zenfolio-numbertext > span").text(num);
+                $(".zenfolio-numbertext > span").text(num);
             }
 
             showSlides(slideIndex);
