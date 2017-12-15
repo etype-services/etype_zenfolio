@@ -32,7 +32,7 @@ function etype_zenfolio_menu()
  */
 function etype_zenfolio_preprocess_html(&$variables)
 {
-  dpm(&$variables);
+  dpm($variables);
 }
 
 /**
