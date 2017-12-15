@@ -32,7 +32,10 @@ function etype_zenfolio_menu()
  */
 function etype_zenfolio_preprocess_html(&$variables)
 {
-  dpm($variables);
+  if (arg(0) == 'node' && is_numeric(arg(1)))
+  {
+    dpm($variables);
+  }
 }
 
 /**
@@ -69,7 +72,7 @@ function etype_zenfolio_preprocess_field(&$vars)
  */
 function _etype_format_slideshow($pictures, $size = 4)
 {
-  dpm($pictures);
+  // dpm($pictures);
   $items = [];
   foreach ($pictures as $item)
   {
