@@ -26,8 +26,9 @@
                 } else {
                     slideIndex = n;
                 }
-                alert(slideIndex);
+                // alert(slideIndex);
                 slides.each(function (i) {
+                    alert(i);
                     if (i === (slideIndex - 1)) {
                         $("this").css("display", "block");
                         // dots[i].addclass("active");
