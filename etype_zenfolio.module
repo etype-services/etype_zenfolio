@@ -106,7 +106,7 @@ function _etype_zenfolio_fetch($photoset_id)
 
     try {
       // $pictures = $client->GetRecentPhotos(0, 10);
-      $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, 10);
+      $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, 50);
       // $pictures = $client->LoadGroupHierarchy($username);
       // array_walk($pictures, '_etype_display_imgs');
       // print_r($pictures);
