@@ -1,12 +1,11 @@
 {% extends "base.html.twig" %}
-
 {% block slides %}
     {% for item in items %}
         <!-- Full-width images with number and caption text -->
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
-            <img src="{item.img_src}" style="width:100%">
-            <div class="text">{item.caption}</div>
+            <img src="{{ item.img_src }}" style="width:100%">
+            <div class="text">{{ item.caption }}</div>
         </div>
     {% endfor %}
 {% endblock %}
