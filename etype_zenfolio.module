@@ -28,6 +28,14 @@ function etype_zenfolio_menu()
 }
 
 /**
+ * @param $variables
+ */
+function etype_zenfolio_preprocess_html(&$variables)
+{
+  dpm(&$variables);
+}
+
+/**
  * @param $vars
  */
 function etype_zenfolio_preprocess_field(&$vars)
