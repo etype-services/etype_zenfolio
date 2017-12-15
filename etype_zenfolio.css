@@ -15,7 +15,7 @@
       max-height: 392px;
       width: auto;
       display: table-cell;
-      vertical-align: center; }
+      vertical-align: middle; }
   .zenfolio-slideshow-container .zenfolio-prev, .zenfolio-slideshow-container .zenfolio-next {
     cursor: pointer;
     position: absolute;
@@ -41,12 +41,13 @@
     bottom: 8px;
     width: 100%;
     text-align: center; }
-  .zenfolio-slideshow-container .numbertext {
+  .zenfolio-slideshow-container .zenfolio-numbertext {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
-    top: 0; }
+    top: 0;
+    left: 7px; }
   .zenfolio-slideshow-container .active {
     background-color: #717171; }
   .zenfolio-slideshow-container .zenfolio-fade {
