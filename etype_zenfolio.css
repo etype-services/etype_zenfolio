@@ -10,7 +10,10 @@
     display: none;
     height: 400px; }
     .zenfolio-slideshow-container .zenfolio-slide img {
-      max-height: 400px; }
+      max-height: 400px;
+      width: auto;
+      display: table-cell;
+      vertical-align: center; }
   .zenfolio-slideshow-container .zenfolio-prev, .zenfolio-slideshow-container .zenfolio-next {
     cursor: pointer;
     position: absolute;
