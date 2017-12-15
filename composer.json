@@ -10,6 +10,7 @@
     }
   ],
   "require": {
-    "lildude/phpzenfolio": "2.0.1"
+    "lildude/phpzenfolio": "2.0.1",
+    "twig/twig": "1.6.5"
   }
 }

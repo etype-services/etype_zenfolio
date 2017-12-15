@@ -1,5 +1,7 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
 /**
  * @return array
  */
@@ -25,20 +27,57 @@ function etype_zenfolio_menu()
   return $items;
 }
 
+/**
+ * @param $vars
+ */
 function etype_zenfolio_preprocess_field(&$vars)
 {
+  $markup = '';
   if($vars['element']['#field_name'] == 'field_zenfolio_photoset_id')
   {
-    // kpr($vars);
     $zenfolio_photoset_id = $vars['items'][0]['#markup'];
     $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
-    $markup = implode('', $pictures);
-    // kpr($markup);
+    if (count($pictures) > 0)
+    {
+      $markup = _etype_format_slideshow($pictures);
+    }
     $vars['items'][0]['#markup'] = $markup;
   }
   return;
 }
 
+/**
+ * @param $pictures
+ *
+ * @return string
+ */
+function _etype_format_slideshow($pictures)
+{
+  kpr($pictures);
+  foreach ($pictures as $item)
+  {
+    $items['img_src'] = phpZenfolio\Client::imageUrl($item, 1);
+    $items['caption'] = 'caption';
+  }
+
+  $template_path = drupal_get_path('module', 'etype_zenfolio') ;
+  $loader = new Twig_Loader_Filesystem($template_path . '/templates');
+  $twig = new Twig_Environment($loader, array(
+    'cache' => false,
+  ));
+  $template = $twig->load('slides.html.twig');
+  $content = $template->render([
+    'items' => $items,
+  ]);
+
+  return $content;
+}
+
+/**
+ * @param $photoset_id
+ *
+ * @return array
+ */
 function _etype_zenfolio_fetch($photoset_id)
 {
 
@@ -49,8 +88,6 @@ function _etype_zenfolio_fetch($photoset_id)
     $appname = 'eType Services/1.0 (www.etypeservices.com)';
     $username = variable_get('etype_zenfolio_username');
     $password = variable_get('etype_zenfolio_password');
-
-    require_once 'vendor/autoload.php';
 
     try {
       $client = new phpZenfolio\Client($appname);
@@ -63,7 +100,7 @@ function _etype_zenfolio_fetch($photoset_id)
       // $pictures = $client->GetRecentPhotos(0, 10);
       $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, 10);
       // $pictures = $client->LoadGroupHierarchy($username);
-      array_walk($pictures, '_etype_display_imgs');
+      // array_walk($pictures, '_etype_display_imgs');
       // print_r($pictures);
     } catch (Exception $e) {
       echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
@@ -74,6 +111,9 @@ function _etype_zenfolio_fetch($photoset_id)
 
 }
 
+/**
+ * @param $item
+ */
 function _etype_display_imgs(&$item)
 {
   $item = $item->Title . '<a href="' . $item->PageUrl . '"><img src="' . phpZenfolio\Client::imageUrl($item, 1) . '" title="' . $item->Title . '" alt="' . $item->Id . '" /></a>';
