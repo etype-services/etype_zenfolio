@@ -39,6 +39,7 @@ function etype_zenfolio_preprocess_html(&$variables)
       'group' => CSS_DEFAULT
     )
   );
+  drupal_add_js(drupal_get_path('module', 'etype_zenfolio') . '/etype_zenfolio.js');
 }
 
 /**
