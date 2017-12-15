@@ -39,7 +39,11 @@ function etype_zenfolio_preprocess_field(&$vars)
     $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
     if (count($pictures) > 0)
     {
-      $markup = _etype_format_slideshow($pictures);
+      try {
+        $markup = _etype_format_slideshow($pictures);
+      } catch (Exception $e) {
+        echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
+      }
     }
     $vars['items'][0]['#markup'] = $markup;
   }
@@ -56,7 +60,7 @@ function etype_zenfolio_preprocess_field(&$vars)
  */
 function _etype_format_slideshow($pictures)
 {
-  kpr($pictures);
+  dpm($pictures);
   $items = [];
   foreach ($pictures as $item)
   {
