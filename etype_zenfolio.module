@@ -32,10 +32,13 @@ function etype_zenfolio_menu()
  */
 function etype_zenfolio_preprocess_html(&$variables)
 {
-  if (arg(0) == 'node' && is_numeric(arg(1)))
-  {
-    dpm($variables);
-  }
+  drupal_add_css(
+    drupal_get_path('module', 'etype_zenfolio') . '/etype_zenfolio.css',
+    array(
+      'type' => 'file',
+      'group' => CSS_DEFAULT
+    )
+  );
 }
 
 /**
