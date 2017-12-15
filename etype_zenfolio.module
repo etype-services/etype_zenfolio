@@ -44,7 +44,7 @@ function etype_zenfolio_preprocess_html(&$variables)
     array(
       'scope' => 'footer',
     )
-    );
+  );
 }
 
 /**

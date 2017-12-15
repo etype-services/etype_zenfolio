@@ -22,6 +22,8 @@
                 }
                 if (n < 1) {
                     slideIndex = slides.length;
+                } else {
+                    slideIndex = n;
                 }
                 slides.each(function (i) {
                     if (i === (slideIndex - 1)) {
