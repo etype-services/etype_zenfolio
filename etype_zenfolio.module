@@ -1,7 +1,5 @@
 <?php
 
-require_once 'vendor/autoload.php';
-
 /**
  * @return array
  */
@@ -53,7 +51,9 @@ function etype_zenfolio_preprocess_field(&$vars)
  */
 function _etype_format_slideshow($pictures)
 {
+  require_once 'vendor/autoload.php';
   kpr($pictures);
+  $items = [];
   foreach ($pictures as $item)
   {
     $items['img_src'] = phpZenfolio\Client::imageUrl($item, 1);
@@ -80,7 +80,7 @@ function _etype_format_slideshow($pictures)
  */
 function _etype_zenfolio_fetch($photoset_id)
 {
-
+  require_once 'vendor/autoload.php';
   $pictures = [];
 
   if (!empty($photoset_id))
