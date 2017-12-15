@@ -1,5 +1,7 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
 /**
  * @return array
  */
@@ -48,10 +50,12 @@ function etype_zenfolio_preprocess_field(&$vars)
  * @param $pictures
  *
  * @return string
+ * @throws \Twig_Error_Loader
+ * @throws \Twig_Error_Runtime
+ * @throws \Twig_Error_Syntax
  */
 function _etype_format_slideshow($pictures)
 {
-  require_once 'vendor/autoload.php';
   kpr($pictures);
   $items = [];
   foreach ($pictures as $item)
@@ -80,7 +84,6 @@ function _etype_format_slideshow($pictures)
  */
 function _etype_zenfolio_fetch($photoset_id)
 {
-  require_once 'vendor/autoload.php';
   $pictures = [];
 
   if (!empty($photoset_id))
