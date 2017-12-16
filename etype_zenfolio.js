@@ -2,6 +2,7 @@
     Drupal.behaviors.etype_zenfolio = {
         attach: function (context) {
             var slideIndex = 1;
+            var slides = $(".zenfolio-slide");
 
             // Next/previous controls
             function plusSlides(n) {
@@ -10,11 +11,9 @@
             }
 
             function showSlides(n) {
-                var slides = $(".zenfolio-slide");
                 if (n > slides.length) {
                     slideIndex = 1;
-                }
-                if (n < 1) {
+                } else if (n < 1) {
                     slideIndex = slides.length;
                 } else {
                     slideIndex = n;
@@ -22,10 +21,8 @@
                 slides.each(function (i) {
                     if (i === (slideIndex - 1)) {
                         $( this ).css("display", "block");
-                        // dots[i].addClass("active");
                     } else {
                         $( this ).css("display", "none");
-                        // dots[i].removeClass(" active");
                     }
                 });
                 $(".zenfolio-numbertext > span").text(slideIndex);
