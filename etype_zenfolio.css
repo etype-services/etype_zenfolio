@@ -3,19 +3,19 @@
   max-width: 1000px;
   position: relative;
   margin: auto;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  height: 400px;
+  padding: 4px;
+  background-color: #f2f2f2; }
   .zenfolio-slideshow-container * {
     box-sizing: border-box; }
   .zenfolio-slideshow-container .zenfolio-slide {
     display: none;
-    height: 400px;
-    padding: 4px;
-    background-color: #f2f2f2; }
+    justify-content: center;
+    justify-items: center; }
     .zenfolio-slideshow-container .zenfolio-slide img {
       max-height: 392px;
-      width: auto;
-      display: table-cell;
-      vertical-align: middle; }
+      width: auto; }
   .zenfolio-slideshow-container .zenfolio-prev, .zenfolio-slideshow-container .zenfolio-next {
     cursor: pointer;
     position: absolute;
