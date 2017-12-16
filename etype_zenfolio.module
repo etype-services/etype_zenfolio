@@ -81,7 +81,7 @@ function etype_zenfolio_preprocess_field(&$vars)
  */
 function _etype_format_slideshow($pictures, $size = 4)
 {
-  // dpm($pictures);
+  dpm($pictures);
   $items = [];
   $total = count($pictures);
   foreach ($pictures as $item)
