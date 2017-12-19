@@ -12,7 +12,8 @@
   .zenfolio-slideshow-container .zenfolio-slide {
     display: none;
     justify-content: center;
-    justify-items: center; }
+    height: 100%;
+    align-items: center; }
     .zenfolio-slideshow-container .zenfolio-slide img {
       max-height: 392px;
       width: auto; }
