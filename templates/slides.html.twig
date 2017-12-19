@@ -4,7 +4,7 @@
     {% for item in items %}
         <div class="zenfolio-slide zenfolio-fade">
             <div class="zenfolio-numbertext"><span>1</span> / {{ total }}</div>
-            <img src="{{ item.img_src }}" alt="{{ item.caption }}" />
+            <a href="{{ photoset_url }}" target="_blank"><img src="{{ item.img_src }}" alt="{{ item.caption }}" /></a>
             <div class="zenfolio-text">{{ item.caption }}</div>
         </div>
     {% endfor %}

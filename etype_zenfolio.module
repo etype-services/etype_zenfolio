@@ -56,11 +56,13 @@ function etype_zenfolio_preprocess_field(&$vars)
   if($vars['element']['#field_name'] == 'field_zenfolio_photoset_id')
   {
     $zenfolio_photoset_id = $vars['items'][0]['#markup'];
-    $pictures = _etype_zenfolio_fetch($zenfolio_photoset_id);
+    $arr = _etype_zenfolio_fetch($zenfolio_photoset_id);
+    $pictures = $arr[0];
+    $photoset = $arr[1];
     if (count($pictures) > 0)
     {
       try {
-        $markup = _etype_format_slideshow($pictures);
+        $markup = _etype_format_slideshow($pictures, $photoset);
       } catch (Exception $e) {
         echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
       }
@@ -72,6 +74,7 @@ function etype_zenfolio_preprocess_field(&$vars)
 
 /**
  * @param $pictures
+ * @param $photoset
  * @param $size
  *
  * @return string
@@ -79,7 +82,7 @@ function etype_zenfolio_preprocess_field(&$vars)
  * @throws \Twig_Error_Runtime
  * @throws \Twig_Error_Syntax
  */
-function _etype_format_slideshow($pictures, $size = 4)
+function _etype_format_slideshow($pictures, $photoset, $size = 4)
 {
   // dpm($pictures);
   $items = [];
@@ -101,6 +104,7 @@ function _etype_format_slideshow($pictures, $size = 4)
   $content = $template->render([
     'items' => $items,
     'total' => $total,
+    'photoset_url' => $photoset->PageUrl,
   ]);
 
   return $content;
@@ -114,6 +118,7 @@ function _etype_format_slideshow($pictures, $size = 4)
 function _etype_zenfolio_fetch($photoset_id)
 {
   $pictures = [];
+  $photoset = [];
 
   if (!empty($photoset_id))
   {
@@ -133,8 +138,15 @@ function _etype_zenfolio_fetch($photoset_id)
     } catch (Exception $e) {
       echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
     }
+
+    try {
+      $photoset = $client->LoadPhotoSet($photoset_id, 'Level1', false);
+    } catch (Exception $e) {
+      echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
+    }
+
   }
 
-  return ($pictures);
+  return [$pictures, $photoset];
 
 }
