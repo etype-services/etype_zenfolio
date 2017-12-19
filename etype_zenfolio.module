@@ -134,13 +134,13 @@ function _etype_zenfolio_fetch($photoset_id)
     }
 
     try {
-      $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, 25);
+      $photoset = $client->LoadPhotoSet($photoset_id, 'Level1', false);
     } catch (Exception $e) {
       echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
     }
 
     try {
-      $photoset = $client->LoadPhotoSet($photoset_id, 'Level1', false);
+      $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, 25);
     } catch (Exception $e) {
       echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
     }
