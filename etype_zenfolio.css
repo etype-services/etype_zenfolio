@@ -16,7 +16,9 @@
     align-items: center; }
     .zenfolio-slideshow-container .zenfolio-slide img {
       max-height: 392px;
-      width: auto; }
+      width: auto;
+      position: relative;
+      top: 3px; }
   .zenfolio-slideshow-container .zenfolio-prev, .zenfolio-slideshow-container .zenfolio-next {
     cursor: pointer;
     position: absolute;
