@@ -101,8 +101,8 @@ function _etype_format_gallery($pictures, $photoset, $size = 4)
     'cache' => false,
   ));
   $display_format = variable_get('etype_zenfolio_display');
-  echo $display_format;
-  $template = $twig->load('slides.html.twig');
+  $template_file = $display_format . '.html.twig';
+  $template = $twig->load($template_file);
   $content = $template->render([
     'items' => $items,
     'total' => $total,

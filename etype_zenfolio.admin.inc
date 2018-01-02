@@ -30,7 +30,7 @@ function etype_zenfolio_admin_form($form, &$form_state) {
     '#title' => t('Display options'),
     '#type' => 'radios',
     '#options' => [
-      'slideshow' => t('Slideshow'),
+      'slides' => t('Slideshow'),
       'thumbs' => t('Thumbnails'),
     ],
     '#default_value' => variable_get('etype_zenfolio_display'),

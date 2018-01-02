@@ -1,17 +1,4 @@
-<style type="text/css">
-    @-webkit-keyframes fade {
-        from {opacity: .4}
-        to {opacity: 1}
-    }
-
-    @keyframes fade {
-        from {opacity: .4}
-        to {opacity: 1}
-    }
-</style>
-<!-- Slideshow container -->
-<div class="zenfolio-slideshow-container">
-    {% block slides %}{% endblock %}
+{% extends "base.html.twig" %}
 {% block slides %}
     <!-- Full-width images with number and caption text -->
     {% for item in items %}
@@ -22,7 +9,3 @@
         </div>
     {% endfor %}
 {% endblock %}
-    <!-- Next and previous buttons -->
-    <a class="zenfolio-prev">&#10094;</a>
-    <a class="zenfolio-next">&#10095;</a>
-</div>
