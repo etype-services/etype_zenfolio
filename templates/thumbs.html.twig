@@ -1,11 +1,11 @@
-{% extends "base.html.twig" %}
-{% block slides %}
+<div class="zenfolio-thumbnail-container">
+    {% block slides %}
     <!-- Full-width images with number and caption text -->
     {% for item in items %}
-        <div class="zenfolio-slide zenfolio-fade">
-            <div class="zenfolio-numbertext"><span>1</span> / {{ total }}</div>
+        <div class="zenfolio-thumb">
             <a href="{{ photoset_url }}" target="_blank"><img src="{{ item.img_src }}" alt="{{ item.caption }}" /></a>
             <div class="zenfolio-text">{{ item.caption }}</div>
         </div>
     {% endfor %}
 {% endblock %}
+</div>

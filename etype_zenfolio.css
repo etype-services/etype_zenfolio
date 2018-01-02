@@ -62,4 +62,19 @@
     animation-name: fade;
     animation-duration: 1.5s; }
 
+/* Thumbnail container */
+.zenfolio-thumbnail-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  box-sizing: border-box;
+  height: 400px;
+  padding: 4px;
+  background-color: #f2f2f2; }
+  .zenfolio-thumbnail-container * {
+    box-sizing: border-box; }
+  .zenfolio-thumbnail-container .zenfolio-thumb img {
+    width: 100px;
+    height: 100px; }
+
 /*# sourceMappingURL=etype_zenfolio.css.map */

@@ -39,12 +39,16 @@ function etype_zenfolio_preprocess_html(&$variables)
       'group' => CSS_DEFAULT
     )
   );
-  drupal_add_js(
-    drupal_get_path('module', 'etype_zenfolio') . '/etype_zenfolio.js',
-    array(
-      'scope' => 'footer',
-    )
-  );
+
+  $display_format = variable_get('etype_zenfolio_display');
+  if ($display_format === 'slides') {
+    drupal_add_js(
+      drupal_get_path('module', 'etype_zenfolio') . '/etype_zenfolio.js',
+      array(
+        'scope' => 'footer',
+      )
+    );
+  }
 }
 
 /**
