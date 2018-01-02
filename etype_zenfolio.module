@@ -62,7 +62,7 @@ function etype_zenfolio_preprocess_field(&$vars)
     if (count($pictures) > 0)
     {
       try {
-        $markup = _etype_format_slideshow($pictures, $photoset);
+        $markup = _etype_format_gallery($pictures, $photoset);
       } catch (Exception $e) {
         echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
       }
@@ -82,7 +82,7 @@ function etype_zenfolio_preprocess_field(&$vars)
  * @throws \Twig_Error_Runtime
  * @throws \Twig_Error_Syntax
  */
-function _etype_format_slideshow($pictures, $photoset, $size = 4)
+function _etype_format_gallery($pictures, $photoset, $size = 4)
 {
   // dpm($pictures);
   $items = [];
@@ -100,6 +100,8 @@ function _etype_format_slideshow($pictures, $photoset, $size = 4)
   $twig = new Twig_Environment($loader, array(
     'cache' => false,
   ));
+  $display_format = variable_get('etype_zenfolio_display');
+  echo $display_format;
   $template = $twig->load('slides.html.twig');
   $content = $template->render([
     'items' => $items,
