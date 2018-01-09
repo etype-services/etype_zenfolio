@@ -66,9 +66,15 @@ function etype_zenfolio_preprocess_field(&$vars)
     if (count($pictures) > 0)
     {
       $display_format = variable_get('etype_zenfolio_display');
-      echo $display_format;
+      switch ($display_format) {
+        case 'thumbs':
+          $size = 10;
+          break;
+        default:
+          $size = 4;
+      }
       try {
-        $markup = _etype_format_gallery($pictures, $photoset);
+        $markup = _etype_format_gallery($pictures, $photoset, $size);
       } catch (Exception $e) {
         echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
       }
