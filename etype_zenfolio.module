@@ -65,6 +65,8 @@ function etype_zenfolio_preprocess_field(&$vars)
     $photoset = $arr[1];
     if (count($pictures) > 0)
     {
+      $display_format = variable_get('etype_zenfolio_display');
+      echo $display_format;
       try {
         $markup = _etype_format_gallery($pictures, $photoset);
       } catch (Exception $e) {
