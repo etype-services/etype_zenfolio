@@ -146,7 +146,7 @@ function _etype_zenfolio_fetch($photoset_id)
     }
 
     try {
-      $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, 25);
+      $pictures = $client->LoadPhotoSetPhotos($photoset_id, 0, $photoset->PhotoCount);
     } catch (Exception $e) {
       echo "{$e->getMessage()} (Error Code: {$e->getCode()})";
     }
