@@ -1,128 +1,130 @@
-<?php return array(
-    'root' => array(
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'type' => 'library',
-        'install_path' => __DIR__ . '/../../',
-        'aliases' => array(),
-        'reference' => '0fbe533746b8162406677e3d5f8e0304f5ae4a26',
-        'name' => 'etype/zenfolio',
-        'dev' => true,
+<?php return array (
+  'root' => 
+  array (
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
+    'aliases' => 
+    array (
     ),
-    'versions' => array(
-        'etype/zenfolio' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'reference' => '0fbe533746b8162406677e3d5f8e0304f5ae4a26',
-            'dev_requirement' => false,
-        ),
-        'guzzlehttp/guzzle' => array(
-            'pretty_version' => '6.5.5',
-            'version' => '6.5.5.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../guzzlehttp/guzzle',
-            'aliases' => array(),
-            'reference' => '9d4290de1cfd701f38099ef7e183b64b4b7b0c5e',
-            'dev_requirement' => false,
-        ),
-        'guzzlehttp/promises' => array(
-            'pretty_version' => '1.5.1',
-            'version' => '1.5.1.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../guzzlehttp/promises',
-            'aliases' => array(),
-            'reference' => 'fe752aedc9fd8fcca3fe7ad05d419d32998a06da',
-            'dev_requirement' => false,
-        ),
-        'guzzlehttp/psr7' => array(
-            'pretty_version' => '1.8.5',
-            'version' => '1.8.5.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../guzzlehttp/psr7',
-            'aliases' => array(),
-            'reference' => '337e3ad8e5716c15f9657bd214d16cc5e69df268',
-            'dev_requirement' => false,
-        ),
-        'lildude/phpzenfolio' => array(
-            'pretty_version' => '2.0.1',
-            'version' => '2.0.1.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../lildude/phpzenfolio',
-            'aliases' => array(),
-            'reference' => 'ab2f05e6a2143c33c48e16538064692eb0c09fd2',
-            'dev_requirement' => false,
-        ),
-        'psr/http-message' => array(
-            'pretty_version' => '1.0.1',
-            'version' => '1.0.1.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../psr/http-message',
-            'aliases' => array(),
-            'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
-            'dev_requirement' => false,
-        ),
-        'psr/http-message-implementation' => array(
-            'dev_requirement' => false,
-            'provided' => array(
-                0 => '1.0',
-            ),
-        ),
-        'ralouphie/getallheaders' => array(
-            'pretty_version' => '3.0.3',
-            'version' => '3.0.3.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../ralouphie/getallheaders',
-            'aliases' => array(),
-            'reference' => '120b605dfeb996808c31b6477290a714d356e822',
-            'dev_requirement' => false,
-        ),
-        'symfony/polyfill-ctype' => array(
-            'pretty_version' => 'v1.25.0',
-            'version' => '1.25.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/polyfill-ctype',
-            'aliases' => array(),
-            'reference' => '30885182c981ab175d4d034db0f6f469898070ab',
-            'dev_requirement' => false,
-        ),
-        'symfony/polyfill-intl-idn' => array(
-            'pretty_version' => 'v1.25.0',
-            'version' => '1.25.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/polyfill-intl-idn',
-            'aliases' => array(),
-            'reference' => '749045c69efb97c70d25d7463abba812e91f3a44',
-            'dev_requirement' => false,
-        ),
-        'symfony/polyfill-intl-normalizer' => array(
-            'pretty_version' => 'v1.25.0',
-            'version' => '1.25.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/polyfill-intl-normalizer',
-            'aliases' => array(),
-            'reference' => '8590a5f561694770bdcd3f9b5c69dde6945028e8',
-            'dev_requirement' => false,
-        ),
-        'symfony/polyfill-php72' => array(
-            'pretty_version' => 'v1.25.0',
-            'version' => '1.25.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/polyfill-php72',
-            'aliases' => array(),
-            'reference' => '9a142215a36a3888e30d0a9eeea9766764e96976',
-            'dev_requirement' => false,
-        ),
-        'twig/twig' => array(
-            'pretty_version' => 'v1.44.6',
-            'version' => '1.44.6.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../twig/twig',
-            'aliases' => array(),
-            'reference' => 'ae39480f010ef88adc7938503c9b02d3baf2f3b3',
-            'dev_requirement' => false,
-        ),
+    'reference' => 'f37b91d2e4ad5d02eceb2417bfd403aef4d37676',
+    'name' => 'etype/zenfolio',
+  ),
+  'versions' => 
+  array (
+    'etype/zenfolio' => 
+    array (
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f37b91d2e4ad5d02eceb2417bfd403aef4d37676',
     ),
+    'guzzlehttp/guzzle' => 
+    array (
+      'pretty_version' => '6.5.8',
+      'version' => '6.5.8.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a52f0440530b54fa079ce76e8c5d196a42cad981',
+    ),
+    'guzzlehttp/promises' => 
+    array (
+      'pretty_version' => '1.5.1',
+      'version' => '1.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fe752aedc9fd8fcca3fe7ad05d419d32998a06da',
+    ),
+    'guzzlehttp/psr7' => 
+    array (
+      'pretty_version' => '1.9.0',
+      'version' => '1.9.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e98e3e6d4f86621a9b75f623996e6bbdeb4b9318',
+    ),
+    'lildude/phpzenfolio' => 
+    array (
+      'pretty_version' => '2.0.1',
+      'version' => '2.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ab2f05e6a2143c33c48e16538064692eb0c09fd2',
+    ),
+    'psr/http-message' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+    ),
+    'psr/http-message-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'ralouphie/getallheaders' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+    ),
+    'symfony/polyfill-ctype' => 
+    array (
+      'pretty_version' => 'v1.26.0',
+      'version' => '1.26.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4',
+    ),
+    'symfony/polyfill-intl-idn' => 
+    array (
+      'pretty_version' => 'v1.26.0',
+      'version' => '1.26.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '59a8d271f00dd0e4c2e518104cc7963f655a1aa8',
+    ),
+    'symfony/polyfill-intl-normalizer' => 
+    array (
+      'pretty_version' => 'v1.26.0',
+      'version' => '1.26.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '219aa369ceff116e673852dce47c3a41794c14bd',
+    ),
+    'symfony/polyfill-php72' => 
+    array (
+      'pretty_version' => 'v1.26.0',
+      'version' => '1.26.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'bf44a9fd41feaac72b074de600314a93e2ae78e2',
+    ),
+    'twig/twig' => 
+    array (
+      'pretty_version' => 'v1.44.6',
+      'version' => '1.44.6.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ae39480f010ef88adc7938503c9b02d3baf2f3b3',
+    ),
+  ),
 );
